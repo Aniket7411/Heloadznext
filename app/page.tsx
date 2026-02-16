@@ -2,71 +2,68 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
 
-const HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuApYbzSILAwlCfwfMBhKfc5XfQG3BclZOywne81_Ye8m2OdpHuBZp0hcoCU51gYGil9vVJHMihPnJDtluabRJSP7kay4TMpaCBn0R2eXx-KP-gP9PUE4y0FFJrk9cF-ge4fAmZjVF_wic7SURygoAL6nS7qxlW25IN5c-IUtCQpYjOpXAQnLVauCMWp7wekVQkar_Inv-9OpBFiDhEFUbNc3dzzSELFVaMCMLLl8Ztv2wVrzTrcbUYySnqM7d2Mxmo9ZsFLN1pRorU";
-const SLOTS_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCiGyf4nbIqYDKC-Ym1vk3DAmYiDooFAhR_oV3EzQmOQ4LZSpwaL2ffnu6R_XsBrsu-br9R_XH5DX1DKsNllAvAbkGHCMDxzJZWCCq62FFeqgbo36-5adEtafOL__qj8C6slUrNpcsFmP3UhioT0aYKuREI2K-HrtgXSvs5BFI6dSJsRcuXjdK0U_cSHVS3QyW7qO2m9-GzXc6CwN51lh8WC27S2SQExLsrDYashXnnehZz933fMeVXILwfCU_8bqLSW8d8EUCzN4A";
 const ACTIVATION_IMAGES = {
   main: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7rv-op_8Vs3T68DOdtvD82AzRZpjCR-rRLw7IGMWev8ne_dUT8-gKVx9wHUiEXkHBeDjWcP4K6l67BGYMlTPiNeu7VTcPLx8p4kts4J5SPhSmOp-bzuJsVoLnC_tCeg6bPAWrFYDOY9GRJjJxJqyqAe3GIRn_wwTZODxhQHqqTy0FIRp3sFSP_CjRpJTluE-I7sRJuH6RuPDVWj_Xwk2JTarXATh5VGtE1FTAWmqS2goHkj99dsCI44LaYVIGLSdxsz6MIUTe6RA",
   gaming: "https://lh3.googleusercontent.com/aida-public/AB6AXuDHp4NKGxqwiJmH8Y2zqzWHw61iVfwSckxKfL4mVvy7AGui9fG6ZcoxECFxw08jiO2iN31L-8SX26yoR5SborhZDGlqfdsMY4u5C_zizecxGt0ZaEFKl0ba69DBOBaFiOJPJSzs56qG09JDX7ZLGVkJjnRCqUcNuO3zbi9q_iWmkYC-WXsPS3o6xYTNv9GTp_HHrPZoLBeoU22ohChnZYyC-SwWIXvmCcrFmCPjq0JnSDN8qliz96v85JYSbZgX6xNUX6QYW9AzHNg",
   tech: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9msfZAw9hpKIdohASAP5KwCkUzk2JMACvdevJj7gP1Q0RxWs2peY_e5JUoBfelXSaunGwdYcEumZXtL0tkqQwxfroEdAYikWBaXY_OHxzKpGMRnoByENG2ORjTVaqCf4FGgO-mnBkUJZYW0J2trhEeSQDLAdgM4fvGPQcYqANMdppMlXruomogDJLR8JcBm89jJx-GeucuGc4dYJZR7uRQGbUuUxkqYrEHimvTH4v4Vj-6-BhavwPEoStWAoKCsXscHleBT_YTYI",
   event: "https://lh3.googleusercontent.com/aida-public/AB6AXuCn7LqarRSdctpp8MpvTeegJF-rX9CkEQYi2luz-bCh7UaME8hBQZN6eVozIvMngLPukjzbQOfjV3L3dfjpeuapWsECEuDF7Ni_HVTR-0z1BpxO4tDH_MS2UyTaZrZcXJe1QIW_mjvlPQOmsTHj80tG5fyQx24OCCsHqru0uCLmE82Eek4nhmscrIrxXmi1M3XgRoZ_lJX7cI6rlaI_UGX803NRHtk6Y8P1SIcBK300TTg9MdmCHkeNiHMFynVLTaBTcrnzINwgkgQ",
 };
-const PIXEL_WEAVE =
-  "https://www.transparenttextures.com/patterns/pixel-weave.png";
-
 export default function Home() {
   return (
     <>
-      <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <div className="glass-container bg-white/70 dark:bg-black/40 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full px-8 py-4 shadow-lg flex items-center gap-8 md:gap-12 transition-all duration-300 hover:border-primary/50">
-          <Link
-            href="#"
-            className="font-display font-bold text-xl md:text-2xl tracking-wider text-black dark:text-white flex items-center gap-2 shrink-0"
-          >
-            <Image
-              src="/images/heloadzlogo.png"
-              alt="HeloAdz"
-              width={140}
-              height={40}
-              className="h-8 w-auto md:h-10 object-contain object-left"
-              priority
-            />
-          </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/5 bg-white/80 dark:bg-[#0a0a0f]/90 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between gap-4">
             <Link
-              href="#impact"
-              className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="#"
+              className="flex items-center gap-2 shrink-0 py-2"
             >
-              Impact
+              <Image
+                src="/images/heloadzlogo.png"
+                alt="HeloAdz"
+                width={200}
+                height={56}
+                className="h-10 w-auto md:h-12 object-contain object-left"
+                priority
+              />
             </Link>
-            <Link
-              href="#slots"
-              className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
-            >
-              Smart Slots
-            </Link>
-            <Link
-              href="#locations"
-              className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
-            >
-              Locations
-            </Link>
+            <div className="hidden md:flex items-center gap-1">
+              <Link
+                href="#impact"
+                className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary transition-colors"
+              >
+                Impact
+              </Link>
+              <Link
+                href="#slots"
+                className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary transition-colors"
+              >
+                Smart Slots
+              </Link>
+              <Link
+                href="#locations"
+                className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary transition-colors"
+              >
+                Locations
+              </Link>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link
+                href="#contact"
+                className="hidden md:inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary/90 transition-all"
+              >
+                Launch Campaign
+              </Link>
+              <ThemeToggle />
+              <button
+                type="button"
+                className="md:hidden rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+                aria-label="Menu"
+              >
+                <span className="material-icons-outlined text-2xl">menu</span>
+              </button>
+            </div>
           </div>
-          <Link
-            href="#contact"
-            className="hidden md:block px-6 py-2 rounded-full bg-primary hover:bg-opacity-90 text-white font-medium transition-all duration-300 shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:shadow-[0_0_25px_rgba(139,92,246,0.8)]"
-          >
-            Launch Campaign
-          </Link>
-          <ThemeToggle />
-          <button
-            type="button"
-            className="md:hidden text-slate-800 dark:text-white"
-            aria-label="Menu"
-          >
-            <span className="material-icons-outlined text-2xl">menu</span>
-          </button>
         </div>
       </nav>
 
@@ -77,47 +74,46 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left animate-[slide-up_0.8s_ease-out_forwards]">
             <div className="inline-block px-4 py-1 mb-6 rounded-full border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 backdrop-blur-sm text-xs md:text-sm uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300 font-semibold">
-              Next Gen OOH Advertising
+              Next-Generation Outdoor Advertising, Designed for Impact
             </div>
             <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-              BREAK THE <br />
-              <span className="text-gradient">FOURTH WALL</span>
+              TURN STREETS INTO <br />
+              <span className="text-gradient  text-2xl md:text-4xl lg:text-6xl ">SHOWSTOPPERS</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
-              Transform urban landscapes with high-impact, curved 3D anamorphic billboards. Capture attention where it matters most.
+              Command attention with high-impact curved LED billboards and immersive 3D anamorphic advertising. HelloAds transforms everyday urban spaces into unforgettable brand experiences that people stop, stare, and share.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
                 type="button"
                 className="px-8 py-4 rounded-full bg-primary text-white font-bold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_35px_rgba(139,92,246,0.6)] hover:-translate-y-1"
               >
-                Start Your Experience
+                Launch Your Campaign
               </button>
               <button
                 type="button"
                 className="px-8 py-4 rounded-full border border-slate-300 dark:border-white/20 hover:border-primary text-slate-800 dark:text-white font-bold tracking-wide transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2 group"
               >
                 <span className="material-icons-outlined group-hover:text-primary transition-colors">play_circle</span>
-                Watch Reel
+                View Live Screens
               </button>
             </div>
           </div>
-          <div className="relative h-[500px] lg:h-[700px] w-full anamorphic-container flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
-            <div className="anamorphic-content relative w-full h-full max-w-lg mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl transform rotate-3 shadow-2xl border border-slate-300 dark:border-white/5 overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden">
+          <div className="relative min-h-[500px] lg:min-h-[700px] w-full anamorphic-container flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
+            <div className="anamorphic-content relative w-full max-w-4xl mx-auto flex items-center justify-center -translate-y-10 lg:-translate-y-12">
+              <div className="relative w-full mb-8 lg:mb-12 bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl transform rotate-3 shadow-2xl border border-slate-300 dark:border-white/5 overflow-hidden">
+                <div className="relative w-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    alt="Futuristic Cityscape at Night"
-                    className="object-cover w-full h-full opacity-60 dark:opacity-40 mix-blend-overlay"
-                    src={HERO_IMAGE}
+                    alt="Hero"
+                    className="block w-full h-auto  object-contain object-center"
+                    src="/images/banner.png"
                   />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-sm opacity-80 animate-pulse mix-blend-screen" />
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    style={{ backgroundImage: `url('${PIXEL_WEAVE}')` }}
-                  />
-                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-sm opacity-80 animate-pulse mix-blend-screen" />
+                   
+                    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
                 </div>
                 <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/20 to-transparent pointer-events-none" />
               </div>
@@ -167,7 +163,7 @@ export default function Home() {
               Defined by <span className="text-gradient">Depth</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed">
-              Standard billboards are static. HeloAdz surfaces are dynamic canvases that utilize forced perspective technology to create mind-bending 3D illusions visible to the naked eye.
+              Traditional billboards fade into the background. HelloAds introduces next-generation curved LED screens that act as dynamic canvases, using advanced forced-perspective and 3D anamorphic technology to create jaw-dropping visual depth—visible clearly to the naked eye, no special equipment required.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -175,24 +171,24 @@ export default function Home() {
               <div className="bg-white dark:bg-[#0A0A0E] h-full rounded-xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/20 transition-all" />
                 <span className="material-icons-outlined text-4xl text-primary mb-6">view_in_ar</span>
-                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Naked-Eye 3D</h3>
-                <p className="text-slate-600 dark:text-slate-400">No glasses required. Our curved LED technology delivers cinema-quality depth perceivable from street level.</p>
+                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Naked-Eye 3D Impact</h3>
+                <p className="text-slate-600 dark:text-slate-400">Experience stunning 3D visuals without glasses. Our curved LED screens create real depth and dimension that instantly grabs attention from street level.</p>
               </div>
             </div>
             <div className="group relative p-1 rounded-2xl bg-gradient-to-b from-slate-200 to-slate-100 dark:from-white/10 dark:to-transparent hover:from-secondary hover:to-accent transition-all duration-500">
               <div className="bg-white dark:bg-[#0A0A0E] h-full rounded-xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-[40px] group-hover:bg-secondary/20 transition-all" />
                 <span className="material-icons-outlined text-4xl text-secondary mb-6">blur_on</span>
-                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Hyper-Realistic</h3>
-                <p className="text-slate-600 dark:text-slate-400">8K resolution capabilities ensuring your brand looks crisp, vibrant, and incredibly lifelike day or night.</p>
+                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Ultra-High Definition Displays</h3>
+                <p className="text-slate-600 dark:text-slate-400">Powered by ultra-high-resolution LED panels, your brand visuals remain sharp, vibrant, and lifelike—day or night, from every viewing angle.</p>
               </div>
             </div>
             <div className="group relative p-1 rounded-2xl bg-gradient-to-b from-slate-200 to-slate-100 dark:from-white/10 dark:to-transparent hover:from-accent hover:to-primary transition-all duration-500">
               <div className="bg-white dark:bg-[#0A0A0E] h-full rounded-xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all" />
                 <span className="material-icons-outlined text-4xl text-accent mb-6">psychology</span>
-                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Viral Potential</h3>
-                <p className="text-slate-600 dark:text-slate-400">Content so engaging passersby can&apos;t help but film and share, extending your reach organically.</p>
+                <h3 className="font-display text-xl font-bold mb-4 dark:text-white">Built for Virality</h3>
+                <p className="text-slate-600 dark:text-slate-400">Our visuals don&apos;t just get noticed—they get recorded, shared, and talked about. Turn street traffic into organic social media reach.</p>
               </div>
             </div>
           </div>
@@ -203,36 +199,34 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
         <div className="absolute right-0 top-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 relative">
+          <div className="lg:w-1/2 relative space-y-4">
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt="Abstract Data Flow"
-                className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                src={SLOTS_IMAGE}
+                alt="Smart Slots"
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                src="/images/slot.png"
               />
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] p-8 flex flex-col justify-end">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-white font-display font-bold">Slot Availability</h4>
-                    <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded uppercase border border-green-500/30">Live</span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-sm text-gray-300">
-                      <span>Peak Hours (18:00 - 22:00)</span>
-                      <span className="text-primary font-bold">Sold Out</span>
-                    </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-full" />
-                    </div>
-                    <div className="flex justify-between text-sm text-gray-300 pt-2">
-                      <span>Early Bird (06:00 - 10:00)</span>
-                      <span className="text-secondary font-bold">3 Slots Left</span>
-                    </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-secondary w-[70%]" />
-                    </div>
-                  </div>
+            </div>
+            <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h4 className="font-display font-bold text-slate-800 dark:text-white">Slot Availability (Live View)</h4>
+                <span className="px-2 py-1 bg-green-500/20 text-green-600 dark:text-green-400 text-xs rounded uppercase border border-green-500/30 font-semibold">Live</span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm text-slate-600 dark:text-gray-300">
+                  <span>Prime Hours (6:00 PM – 10:00 PM)</span>
+                  <span className="text-primary font-bold">Fully Booked</span>
+                </div>
+                <div className="h-1.5 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-primary w-full" />
+                </div>
+                <div className="flex justify-between text-sm text-slate-600 dark:text-gray-300 pt-2">
+                  <span>Morning Rush (7:00 AM – 11:00 AM)</span>
+                  <span className="text-secondary font-bold">Limited Slots Available</span>
+                </div>
+                <div className="h-1.5 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-secondary w-[70%]" />
                 </div>
               </div>
             </div>
@@ -242,10 +236,10 @@ export default function Home() {
             <h2 className="font-display font-bold text-4xl md:text-5xl mb-6 dark:text-white">
               Smart Slots.
               <br />
-              Intelligent Timing.
+              Maximum Visibility.
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
-              Stop paying for empty eyes. Our AI-driven Smart Slots system analyzes traffic patterns and demographic data in real-time to display your ad when your target audience is most likely to be present.
+              Why pay for empty impressions? HelloAds uses intelligent slot-based advertising to display your brand exactly when your audience is most active—ensuring higher visibility, better engagement, and smarter ad spends.
             </p>
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
@@ -253,8 +247,8 @@ export default function Home() {
                   <span className="material-icons-outlined">schedule</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg dark:text-white">Dayparting Precision</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Control exactly when your content goes live down to the minute.</p>
+                  <h4 className="font-bold text-lg dark:text-white">Time-Based Slot Control</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Schedule your ads during peak traffic hours or specific time windows to maximize exposure and ROI.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -262,8 +256,8 @@ export default function Home() {
                   <span className="material-icons-outlined">trending_up</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg dark:text-white">Dynamic Pricing</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Flexible bidding system ensures you get the best value for prime locations.</p>
+                  <h4 className="font-bold text-lg dark:text-white">Flexible Slot Pricing</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Choose from daily, weekly, or monthly slots with pricing that adapts to demand and location value.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -271,8 +265,8 @@ export default function Home() {
                   <span className="material-icons-outlined">analytics</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg dark:text-white">Real-Time Analytics</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Track impressions and engagement instantly through our dashboard.</p>
+                  <h4 className="font-bold text-lg dark:text-white">Performance Insights</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Monitor visibility metrics, estimated impressions, and campaign performance to understand your brand impact.</p>
                 </div>
               </li>
             </ul>

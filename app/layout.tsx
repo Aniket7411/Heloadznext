@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "HeloAdz | The Future of 3D OOH Advertising",
   description:
     "Experience the next dimension of advertising with HeloAdz. 3D curved anamorphic billboards that captivate and convert.",
+  icons: {
+    icon: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({
