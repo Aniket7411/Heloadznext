@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { DreamspacesSection } from "./components/DreamspacesSection";
 
 const ACTIVATION_IMAGES = {
   main: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7rv-op_8Vs3T68DOdtvD82AzRZpjCR-rRLw7IGMWev8ne_dUT8-gKVx9wHUiEXkHBeDjWcP4K6l67BGYMlTPiNeu7VTcPLx8p4kts4J5SPhSmOp-bzuJsVoLnC_tCeg6bPAWrFYDOY9GRJjJxJqyqAe3GIRn_wwTZODxhQHqqTy0FIRp3sFSP_CjRpJTluE-I7sRJuH6RuPDVWj_Xwk2JTarXATh5VGtE1FTAWmqS2goHkj99dsCI44LaYVIGLSdxsz6MIUTe6RA",
@@ -304,7 +305,7 @@ export default function Home() {
               <img
                 alt="Gaming Ad"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                src={ACTIVATION_IMAGES.gaming}
+                src="/images/highway.jpeg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -330,7 +331,7 @@ export default function Home() {
               <img
                 alt="Event Promo"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                src={ACTIVATION_IMAGES.event}
+                src="/images/riddhi.jpeg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -341,6 +342,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DreamspacesSection />
 
       <section className="py-24 relative overflow-hidden" id="contact">
         <div className="absolute inset-0 bg-slate-900 dark:bg-black z-0" />
