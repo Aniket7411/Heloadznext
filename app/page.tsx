@@ -190,7 +190,7 @@ export default function Home() {
             >
               Defined by <span className="text-gradient">Depth</span>
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-500 text-lg md:text-xl leading-relaxed">
               Traditional billboards fade into the background. HelloAds introduces next-generation curved LED screens that act as dynamic canvases, using advanced forced-perspective and 3D anamorphic technology to create jaw-dropping visual depth—visible clearly to the naked eye, no special equipment required.
             </p>
           </div>
