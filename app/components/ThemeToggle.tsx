@@ -1,17 +1,30 @@
 "use client";
 
-export function ThemeToggle() {
+type Theme = "bright" | "dark";
+
+export function ThemeToggle({
+  onToggle,
+}: {
+  onToggle?: (next: Theme) => void;
+}) {
   function toggle() {
     const html = document.documentElement;
+    let next: Theme;
+
     if (html.classList.contains("dark")) {
       html.classList.remove("dark");
       html.classList.add("light-mode");
       localStorage.theme = "light";
+      next = "bright";
     } else {
       html.classList.add("dark");
       html.classList.remove("light-mode");
       localStorage.theme = "dark";
+      next = "dark";
     }
+
+    console.log("Theme toggled to:", next);
+    onToggle?.(next);
   }
 
   return (

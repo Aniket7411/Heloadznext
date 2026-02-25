@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
@@ -9,10 +12,25 @@ const ACTIVATION_IMAGES = {
   tech: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9msfZAw9hpKIdohASAP5KwCkUzk2JMACvdevJj7gP1Q0RxWs2peY_e5JUoBfelXSaunGwdYcEumZXtL0tkqQwxfroEdAYikWBaXY_OHxzKpGMRnoByENG2ORjTVaqCf4FGgO-mnBkUJZYW0J2trhEeSQDLAdgM4fvGPQcYqANMdppMlXruomogDJLR8JcBm89jJx-GeucuGc4dYJZR7uRQGbUuUxkqYrEHimvTH4v4Vj-6-BhavwPEoStWAoKCsXscHleBT_YTYI",
   event: "https://lh3.googleusercontent.com/aida-public/AB6AXuCn7LqarRSdctpp8MpvTeegJF-rX9CkEQYi2luz-bCh7UaME8hBQZN6eVozIvMngLPukjzbQOfjV3L3dfjpeuapWsECEuDF7Ni_HVTR-0z1BpxO4tDH_MS2UyTaZrZcXJe1QIW_mjvlPQOmsTHj80tG5fyQx24OCCsHqru0uCLmE82Eek4nhmscrIrxXmi1M3XgRoZ_lJX7cI6rlaI_UGX803NRHtk6Y8P1SIcBK300TTg9MdmCHkeNiHMFynVLTaBTcrnzINwgkgQ",
 };
+
 export default function Home() {
+  const [theme, setTheme] = useState<"bright" | "dark">("bright");
+
+  // Sync initial theme from the <html> class when the component mounts
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    const current: "bright" | "dark" = isDark ? "dark" : "bright";
+    setTheme(current);
+    console.log("Current theme:", current);
+  }, []);
+
+  // Helper class for the main hero heading color
+  const heroHeadingColor =
+    theme === "bright" ? "text-black" : "text-blue-400";
+
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/5 bg-white/80 dark:bg-[#0a0a0f]/90 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/5 bg-white/80 dark:bg-[#000] backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between gap-4">
             <Link
@@ -55,7 +73,12 @@ export default function Home() {
               >
                 Launch Campaign
               </Link>
-              <ThemeToggle />
+              <ThemeToggle
+                onToggle={(next) => {
+                  setTheme(next);
+                  console.log("Theme toggled to:", next);
+                }}
+              />
               <button
                 type="button"
                 className="md:hidden rounded-lg p-2 text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
@@ -74,10 +97,12 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 dark:bg-secondary/10 rounded-full blur-[100px] animate-[pulse-glow_3s_cubic-bezier(0.4,0,0.6,1)_infinite]" style={{ animationDelay: "1s" }} />
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left animate-[slide-up_0.8s_ease-out_forwards]">
-            <div className="inline-block px-4 py-1 mb-6 rounded-full border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 backdrop-blur-sm text-xs md:text-sm uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300 font-semibold">
+            <div className={`inline-block px-4 py-1 mb-6 rounded-full border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 backdrop-blur-sm text-xs md:text-sm uppercase tracking-[0.2em] font-semibold ${heroHeadingColor}`}>
               Next-Generation Outdoor Advertising, Designed for Impact
             </div>
-            <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
+            <h1
+              className={`font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 ${heroHeadingColor}`}
+            >
               TURN STREETS INTO <br />
               <span className="text-gradient  text-2xl md:text-4xl lg:text-6xl ">SHOWSTOPPERS</span>
             </h1>
@@ -93,10 +118,10 @@ export default function Home() {
               </button>
               <button
                 type="button"
-                className="px-8 py-4 rounded-full border border-slate-300 dark:border-white/20 hover:border-primary text-slate-800 dark:text-white font-bold tracking-wide transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2 group"
+                className="px-8 py-4 rounded-full border border-slate-300 dark:border-white/20 hover:border-primary font-bold tracking-wide transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2 group"
               >
                 <span className="material-icons-outlined group-hover:text-primary transition-colors">play_circle</span>
-                View Live Screens
+                <span className={heroHeadingColor}>View Live Screens</span>
               </button>
             </div>
           </div>
@@ -112,7 +137,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-sm opacity-80 animate-pulse mix-blend-screen" />
-                   
+
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
                 </div>
@@ -139,8 +164,8 @@ export default function Home() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
           aria-label="Scroll down"
         >
-          <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">Scroll</span>
-          <span className="material-icons-outlined text-slate-500 dark:text-slate-400">keyboard_arrow_down</span>
+          <span className={`text-xs uppercase tracking-widest ${heroHeadingColor}`}>Scroll</span>
+          <span className={`material-icons-outlined ${heroHeadingColor}`}>keyboard_arrow_down</span>
         </a>
       </header>
 
@@ -160,7 +185,9 @@ export default function Home() {
       <section className="py-24 md:py-32 relative" id="impact">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-20">
-            <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 dark:text-white">
+            <h2
+              className={`font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 ${heroHeadingColor}`}
+            >
               Defined by <span className="text-gradient">Depth</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed">
@@ -386,7 +413,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-background-light dark:bg-black border-t border-slate-200 dark:border-white/10 pt-16 pb-8">
+      {/* <footer className="bg-background-light dark:bg-black border-t border-slate-200 dark:border-white/10 pt-16 pb-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="flex items-center gap-2">
@@ -423,7 +450,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </>
   );
 }
