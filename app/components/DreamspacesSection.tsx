@@ -142,8 +142,10 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
                   }}
                   className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                     activeCategoryId === cat.id
-                      ? "bg-green-500 dark:bg-green-500 text-[#fff] dark:text-[#fff] shadow"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-[#fff]"
+                      ? "bg-green-500 text-[#fff] shadow"
+                      : theme === "bright"
+                        ? "text-[#000] hover:text-[#000]"
+                        : "text-[#fff] hover:text-[#fff]"
                   }`}
                 >
                   {cat.label}
@@ -162,7 +164,9 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                       activeSubIndex === i
                         ? "bg-green-500 text-[#fff]"
-                        : "bg-slate-200 dark:bg-white/10 text-black dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-white/20"
+                        : `bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 ${
+                            theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                          }`
                     }`}
                   >
                     {sub.name}
