@@ -91,7 +91,11 @@ const DREAMSPACES_DATA: Category[] = [
 const TAGLINE =
   "Prime locations. Maximum visibility. Infinite flexibility. EVA screens command attention where it matters most. From local shops to global brands, every play becomes lasting impact.";
 
-export function DreamspacesSection() {
+type DreamspacesSectionProps = {
+  theme: "bright" | "dark";
+};
+
+export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
   const [activeCategoryId, setActiveCategoryId] = useState("3d-hoardings");
   const [activeSubIndex, setActiveSubIndex] = useState(0);
 
@@ -99,22 +103,35 @@ export function DreamspacesSection() {
   const activeSub = activeCategory.subcategories[activeSubIndex] ?? activeCategory.subcategories[0];
 
   return (
-    <section className="py-16 md:py-24 bg-slate-100 dark:bg-surface-dark" id="dreamspaces">
+    <section
+      className={`py-16 md:py-24 ${
+        theme === "bright" ? "bg-background-light" : "bg-surface-dark"
+      }`}
+      id="dreamspaces"
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
           {/* Left: content */}
           <div className="flex-1 order-2 lg:order-1 flex flex-col justify-center">
-            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-slate-900 dark:text-white mb-4 leading-tight">
+            <h2
+              className={`font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight ${
+                theme === "bright" ? "text-[#000]" : "text-[#fff]"
+              }`}
+            >
               Lighting Up Jaipur.
               <br />
               Your Digital Dreamspaces.
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg mb-8 max-w-xl">
+            <p
+              className={`text-base md:text-lg mb-8 max-w-xl ${
+                theme === "bright" ? "text-[#000]" : "text-[#fff]"
+              }`}
+            >
               {TAGLINE}
             </p>
 
             {/* Tabs */}
-            <div className="flex gap-0 rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-200/50 dark:bg-white/5 p-1 w-fit mb-8">
+            <div className="flex gap-0 rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-1 w-fit mb-8">
               {DREAMSPACES_DATA.map((cat) => (
                 <button
                   key={cat.id}
@@ -125,8 +142,8 @@ export function DreamspacesSection() {
                   }}
                   className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                     activeCategoryId === cat.id
-                      ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-green-500 dark:bg-green-500 text-[#fff] dark:text-[#fff] shadow"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-[#fff]"
                   }`}
                 >
                   {cat.label}
@@ -144,8 +161,8 @@ export function DreamspacesSection() {
                     onClick={() => setActiveSubIndex(i)}
                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                       activeSubIndex === i
-                        ? "bg-primary text-white"
-                        : "bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-white/20"
+                        ? "bg-green-500 text-[#fff]"
+                        : "bg-slate-200 dark:bg-white/10 text-black dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-white/20"
                     }`}
                   >
                     {sub.name}
@@ -153,16 +170,26 @@ export function DreamspacesSection() {
                 ))}
               </div>
               <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                <h3 className="font-display font-bold text-xl text-slate-900 dark:text-white mb-4">
-                  {activeSub.name}
-                </h3>
+                <h3
+                className={`font-display font-bold text-xl mb-4 ${
+                  theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                }`}
+              >
+                {activeSub.name}
+              </h3>
                 {activeSub.details.length > 0 ? (
                   <dl className="space-y-3">
                     {activeSub.details.map((d) => (
                       <div key={d.label} className="flex flex-wrap gap-x-2 text-sm">
                         <dt className="text-slate-500 dark:text-slate-400">{d.label}</dt>
                         <span className="text-slate-500 dark:text-slate-400">:</span>
-                        <dd className="text-slate-800 dark:text-white font-medium">{d.value}</dd>
+                        <dd
+                          className={`font-medium ${
+                            theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                          }`}
+                        >
+                          {d.value}
+                        </dd>
                       </div>
                     ))}
                   </dl>
@@ -170,7 +197,11 @@ export function DreamspacesSection() {
                   <p className="text-slate-500 dark:text-slate-400 text-sm">Details coming soon.</p>
                 )}
                 {activeSub.locations && activeSub.locations.length > 0 && (
-                  <ul className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
+                  <ul
+                  className={`mt-4 pt-4 border-t border-slate-200 dark:border-white/10 space-y-1.5 text-sm ${
+                    theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                  }`}
+                >
                     {activeSub.locations.map((loc) => (
                       <li key={loc}>• {loc}</li>
                     ))}
@@ -182,7 +213,7 @@ export function DreamspacesSection() {
 
           {/* Right: image changes by category + subcategory */}
           <div className="flex-1 order-1 lg:order-2 flex flex-col items-center justify-center min-h-[320px] lg:min-h-[420px]">
-            <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-200 dark:bg-white/5">
+            <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5">
               <img
                 key={`${activeCategoryId}-${activeSubIndex}`}
                 src={`/images/${encodeURIComponent(activeSub.image)}`}

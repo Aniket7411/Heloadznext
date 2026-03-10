@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GR Technologies - Cloud Services</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4c025",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-4 sm:px-10 py-3">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[24px]">cloud_circle</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">GR Technologies</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 hidden md:flex">
+<nav class="flex items-center gap-9">
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Industries</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About Us</a>
+</nav>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-background-dark text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+<div class="flex md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</header>
+<!-- Hero Section -->
+<div class="@container w-full">
+<div class="relative flex min-h-[560px] flex-col gap-6 items-center justify-center p-4 text-center overflow-hidden">
+<!-- Abstract tech grid background approximation via gradients -->
+<div class="absolute inset-0 z-0 bg-background-dark">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #f4c025 1px, transparent 0); background-size: 40px 40px;"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/80 to-background-dark"></div>
+</div>
+<div class="relative z-10 flex flex-col gap-4 max-w-4xl px-4">
+<div class="inline-flex items-center justify-center gap-2 self-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 mb-2">
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Enterprise Cloud Solutions</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                        Secure, Scalable <span class="text-primary">Cloud Infrastructure</span>
+</h1>
+<h2 class="text-slate-600 dark:text-slate-300 text-base sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto">
+                        Empowering your enterprise with resilient, high-performance cloud solutions designed for the future of digital business.
+                    </h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-background-dark text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(244,192,37,0.3)] transition-all">
+<span class="truncate">Optimize Your Cloud</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 border border-slate-700 hover:border-primary/50 bg-background-dark/50 hover:bg-background-dark text-white text-base font-bold leading-normal tracking-[0.015em] transition-all">
+<span class="truncate">View Case Studies</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Overview Section -->
+<div class="flex flex-col md:flex-row gap-10 px-4 sm:px-10 py-16 sm:py-24 w-full max-w-[1400px] mx-auto">
+<div class="flex flex-col gap-8 flex-1 justify-center">
+<div class="flex flex-col gap-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-wider">Comprehensive Approach</h2>
+<h3 class="text-slate-900 dark:text-white text-3xl sm:text-4xl font-bold leading-tight">
+                        End-to-End Cloud Mastery
+                    </h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                        From seamless migration to continuous optimization, we provide holistic cloud services tailored to your specific business architecture. Our approach ensures security, speed, and scalability at every step.
+                    </p>
+</div>
+<div class="grid gap-6">
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">Seamless Migration</h4>
+<p class="text-slate-600 dark:text-slate-400">Zero-downtime transition strategies for legacy systems.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">all_inclusive</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">DevOps Excellence</h4>
+<p class="text-slate-600 dark:text-slate-400">Streamlined CI/CD pipelines for faster deployment cycles.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">Proactive Monitoring</h4>
+<p class="text-slate-600 dark:text-slate-400">24/7 surveillance ensuring 99.99% uptime and security.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 relative min-h-[400px]">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl transform rotate-3 scale-95 translate-y-4 border border-primary/20"></div>
+<div class="absolute inset-0 rounded-xl overflow-hidden border border-slate-700/50 shadow-2xl bg-slate-900">
+<div class="w-full h-full bg-cover bg-center" data-alt="Abstract network connections and cloud data visualization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWoCqNJi3Za5nQqDc8-Rg2e9zXrjSku5Nqn6tSjsGlatMSRQHS8-7pTUxZB8kBImGQTcHWBg52DIQgkya00QLEzpLdotedgTrmfVwFCaZSSSfm4nNwNY7KjpgDH6yQY5aWx6crKKHfInjyx1b8C4U5Gs5H283hADqhwION4jp0KwHRQUbU-WxEPxhdkM5UJV-lfXeyot7ElCLUe5pSS7FAmoirH1zzuQCfWnN6CXgDnMxcXMsaYZVjiLX6A_cqCTzfxaU0UPtavA");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6 p-4 bg-background-dark/80 backdrop-blur-sm border border-slate-700 rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs text-slate-400 font-mono">SYSTEM STATUS</span>
+<span class="text-xs text-green-400 font-bold flex items-center gap-1"><span class="block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> ONLINE</span>
+</div>
+<div class="h-1 w-full bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Services Grid -->
+<div class="px-4 sm:px-10 py-16 bg-slate-50 dark:bg-slate-900/20 border-y border-slate-200 dark:border-slate-800">
+<div class="max-w-[1400px] mx-auto">
+<div class="mb-12 text-center max-w-3xl mx-auto">
+<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-4">Our Premium Cloud Services</h2>
+<p class="text-slate-600 dark:text-slate-400">Architecting the future with a suite of specialized services designed for performance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service Card 1 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">cloud_upload</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Cloud Migration</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Expert guidance moving your legacy systems to the cloud with minimal downtime and maximum data integrity.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 2 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">DevOps &amp; CI/CD</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Automate your software delivery process. Accelerate innovation with robust Continuous Integration pipelines.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 3 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">code</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Infrastructure as Code</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Manage and provision your data centers through machine-readable definition files, ensuring consistency.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 4 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Cloud Security</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Advanced threat protection and compliance management to safeguard your sensitive enterprise data.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 5 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Monitoring &amp; Optimization</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Continuous performance tuning and cost optimization to ensure you get the most out of your cloud investment.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 6 (Added for balance) -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(244,192,37,0.1)]">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Data Engineering</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Build scalable data pipelines and warehouses to unlock actionable insights from your enterprise data.
+                        </p>
+<a class="mt-auto flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80" href="#">
+                            Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Platforms Section -->
+<div class="px-4 sm:px-10 py-20 w-full max-w-[1400px] mx-auto">
+<div class="mb-10 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-xl">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight mb-2">Supported Platforms</h2>
+<p class="text-slate-600 dark:text-slate-400">We work with industry-leading technologies to build your custom solution.</p>
+</div>
+<div class="h-[1px] flex-1 bg-slate-800 self-center hidden md:block ml-8 opacity-50"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<div class="flex flex-col items-center justify-center gap-3 p-6 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/60 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary transition-colors">cloud</span>
+<span class="font-bold text-slate-300 group-hover:text-white">AWS</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 p-6 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/60 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary transition-colors">grid_view</span>
+<span class="font-bold text-slate-300 group-hover:text-white">Azure</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 p-6 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/60 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary transition-colors">folder_data</span>
+<span class="font-bold text-slate-300 group-hover:text-white">Google Cloud</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 p-6 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/60 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary transition-colors">deployed_code</span>
+<span class="font-bold text-slate-300 group-hover:text-white">Docker</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 p-6 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/60 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary transition-colors">anchor</span>
+<span class="font-bold text-slate-300 group-hover:text-white">Kubernetes</span>
+</div>
+</div>
+</div>
+<!-- Final CTA -->
+<div class="relative py-24 px-4 overflow-hidden">
+<div class="absolute inset-0 bg-background-dark">
+<div class="absolute inset-0 bg-[linear-gradient(rgba(244,192,37,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(244,192,37,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-background-dark/80"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+                    Transform Your <span class="text-primary">Cloud Strategy</span> Today
+                </h2>
+<p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+                    Ready to scale? Our experts are standing by to audit your infrastructure and propose a roadmap for growth.
+                </p>
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-yellow-400 text-background-dark text-lg font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20 transition-all transform hover:scale-105">
+<span class="truncate">Talk to a Cloud Expert</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-slate-800 px-4 sm:px-10 py-12">
+<div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[24px]">cloud_circle</span>
+</div>
+<span class="text-lg font-bold">GR Technologies</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="text-sm text-slate-500">
+                    © 2023 GR Technologies. All rights reserved.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

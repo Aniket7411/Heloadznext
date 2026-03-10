@@ -223,7 +223,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-slate-50 dark:bg-surface-dark relative overflow-hidden" id="slots">
+      <section
+        className={`py-24 relative overflow-hidden ${theme === "bright" ? "bg-background-light" : "bg-surface-dark"}`}
+        id="slots"
+      >
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
         <div className="absolute right-0 top-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
@@ -242,14 +245,22 @@ export default function Home() {
                 <span className="px-2 py-1 bg-green-500/20 text-green-600 dark:text-green-400 text-xs rounded uppercase border border-green-500/30 font-semibold">Live</span>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm text-slate-600 dark:text-gray-300">
+                <div
+                className={`flex justify-between text-sm ${
+                  theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                }`}
+              >
                   <span>Prime Hours (6:00 PM – 10:00 PM)</span>
                   <span className="text-primary font-bold">Fully Booked</span>
                 </div>
                 <div className="h-1.5 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-full" />
                 </div>
-                <div className="flex justify-between text-sm text-slate-600 dark:text-gray-300 pt-2">
+                <div
+                className={`flex justify-between text-sm pt-2 ${
+                  theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                }`}
+              >
                   <span>Morning Rush (7:00 AM – 11:00 AM)</span>
                   <span className="text-secondary font-bold">Limited Slots Available</span>
                 </div>
@@ -261,7 +272,11 @@ export default function Home() {
           </div>
           <div className="lg:w-1/2">
             <span className="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Programmatic Power</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6 dark:text-white">
+            <h2
+              className={`font-display font-bold text-4xl md:text-5xl mb-6 ${
+                theme === "bright" ? "text-[#000]" : "text-[#fff]"
+              }`}
+            >
               Smart Slots.
               <br />
               Maximum Visibility.
@@ -276,7 +291,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg dark:text-white">Time-Based Slot Control</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Schedule your ads during peak traffic hours or specific time windows to maximize exposure and ROI.</p>
+                  <p
+                    className={`text-sm mt-1 ${
+                      theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                    }`}
+                  >Schedule your ads during peak traffic hours or specific time windows to maximize exposure and ROI.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -285,7 +304,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg dark:text-white">Flexible Slot Pricing</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Choose from daily, weekly, or monthly slots with pricing that adapts to demand and location value.</p>
+                  <p
+                    className={`text-sm mt-1 ${
+                      theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                    }`}
+                  >Choose from daily, weekly, or monthly slots with pricing that adapts to demand and location value.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -294,7 +317,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg dark:text-white">Performance Insights</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">Monitor visibility metrics, estimated impressions, and campaign performance to understand your brand impact.</p>
+                  <p
+                    className={`text-sm mt-1 ${
+                      theme === "bright" ? "text-[#000]" : "text-[#fff]"
+                    }`}
+                  >Monitor visibility metrics, estimated impressions, and campaign performance to understand your brand impact.</p>
                 </div>
               </li>
             </ul>
@@ -366,7 +393,7 @@ export default function Home() {
         </div>
       </section> */}
 
-      <DreamspacesSection />
+      <DreamspacesSection theme={theme} />
 
       <section className="py-24 relative overflow-hidden" id="contact">
         <div className="absolute inset-0 bg-slate-900 dark:bg-black z-0" />
