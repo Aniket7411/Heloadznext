@@ -5,6 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { DreamspacesSection } from "./components/DreamspacesSection";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+const EMAILJS_READY = Boolean(EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID);
+
+// console.log(EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID);
 
 const ACTIVATION_IMAGES = {
   main: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7rv-op_8Vs3T68DOdtvD82AzRZpjCR-rRLw7IGMWev8ne_dUT8-gKVx9wHUiEXkHBeDjWcP4K6l67BGYMlTPiNeu7VTcPLx8p4kts4J5SPhSmOp-bzuJsVoLnC_tCeg6bPAWrFYDOY9GRJjJxJqyqAe3GIRn_wwTZODxhQHqqTy0FIRp3sFSP_CjRpJTluE-I7sRJuH6RuPDVWj_Xwk2JTarXATh5VGtE1FTAWmqS2goHkj99dsCI44LaYVIGLSdxsz6MIUTe6RA",
@@ -13,8 +21,12 @@ const ACTIVATION_IMAGES = {
   event: "https://lh3.googleusercontent.com/aida-public/AB6AXuCn7LqarRSdctpp8MpvTeegJF-rX9CkEQYi2luz-bCh7UaME8hBQZN6eVozIvMngLPukjzbQOfjV3L3dfjpeuapWsECEuDF7Ni_HVTR-0z1BpxO4tDH_MS2UyTaZrZcXJe1QIW_mjvlPQOmsTHj80tG5fyQx24OCCsHqru0uCLmE82Eek4nhmscrIrxXmi1M3XgRoZ_lJX7cI6rlaI_UGX803NRHtk6Y8P1SIcBK300TTg9MdmCHkeNiHMFynVLTaBTcrnzINwgkgQ",
 };
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function Home() {
   const [theme, setTheme] = useState<"bright" | "dark">("bright");
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
 
   // Sync initial theme from the <html> class when the component mounts
   useEffect(() => {
@@ -23,6 +35,32 @@ export default function Home() {
     setTheme(current);
     console.log("Current theme:", current);
   }, []);
+
+  async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!EMAILJS_READY) {
+      setFormStatus("error");
+      return;
+    }
+    setFormStatus("sending");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          user_name: formData.name,
+          user_email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setFormStatus("success");
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch {
+      setFormStatus("error");
+    }
+  }
 
   // Helper class for the main hero heading color
   const heroHeadingColor =
@@ -407,47 +445,95 @@ export default function Home() {
           <p className="text-slate-300 text-xl mb-12 max-w-2xl mx-auto">
             Join the revolution of outdoor advertising. Book your slot on the world&apos;s most advanced anamorphic screens today.
           </p>
-          <form className="max-w-md mx-auto space-y-4 bg-white/5 backdrop-blur-lg p-8 rounded-3xl border border-white/10">
+          <form onSubmit={handleContactSubmit} className="max-w-md mx-auto space-y-4 bg-white/5 backdrop-blur-lg p-8 rounded-3xl border border-white/10">
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
                 placeholder="Name"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
                 className="w-full bg-white/10 border-transparent focus:border-primary focus:bg-white/20 focus:ring-0 rounded-xl px-4 py-3 text-white placeholder-gray-400 transition-all"
               />
               <input
                 type="email"
                 placeholder="Email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData((d) => ({ ...d, email: e.target.value }))}
                 className="w-full bg-white/10 border-transparent focus:border-primary focus:bg-white/20 focus:ring-0 rounded-xl px-4 py-3 text-white placeholder-gray-400 transition-all"
               />
             </div>
             <input
               type="text"
               placeholder="Company"
+              value={formData.company}
+              onChange={(e) => setFormData((d) => ({ ...d, company: e.target.value }))}
               className="w-full bg-white/10 border-transparent focus:border-primary focus:bg-white/20 focus:ring-0 rounded-xl px-4 py-3 text-white placeholder-gray-400 transition-all"
             />
             <textarea
               placeholder="Tell us about your campaign idea..."
               rows={3}
+              required
+              value={formData.message}
+              onChange={(e) => setFormData((d) => ({ ...d, message: e.target.value }))}
               className="w-full bg-white/10 border-transparent focus:border-primary focus:bg-white/20 focus:ring-0 rounded-xl px-4 py-3 text-white placeholder-gray-400 transition-all"
             />
+            {formStatus === "success" && (
+              <p className="text-sm text-green-400 text-center">Thanks! We&apos;ll get back to you soon.</p>
+            )}
+            {formStatus === "error" && (
+              <p className="text-sm text-red-400 text-center">
+                {EMAILJS_READY ? "Something went wrong. Please try again." : "Contact form is not configured yet. Add EmailJS keys in .env.local."}
+              </p>
+            )}
             <button
-              type="button"
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-bold text-lg tracking-wide shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transform hover:-translate-y-1 transition-all"
+              type="submit"
+              disabled={formStatus === "sending"}
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-bold text-lg tracking-wide shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transform hover:-translate-y-1 transition-all disabled:opacity-70 disabled:pointer-events-none disabled:transform-none"
             >
-              Request Consultation
+              {formStatus === "sending" ? "Sending…" : "Request Consultation"}
             </button>
           </form>
         </div>
       </section>
 
-      {/* <footer className="bg-background-light dark:bg-black border-t border-slate-200 dark:border-white/10 pt-16 pb-8">
+      <footer className="bg-background-light dark:bg-black border-t border-slate-200 dark:border-white/10 pt-16 pb-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center mb-12 gap-10 md:gap-6">
+            <div className="flex items-center gap-2 shrink-0 justify-center md:justify-start">
+              {/* Header logo (same as nav) */}
+              <Link href="#" className="flex items-center shrink-0">
+                <Image
+                  src="/images/heloadzlogo.png"
+                  alt="HeloAdz"
+                  width={200}
+                  height={56}
+                  className="h-9 w-auto md:h-10 object-contain object-left"
+                />
+              </Link>
+              {/* Previous footer branding – commented out
               <span className="text-4xl text-gradient font-display font-black">h</span>
-              <span className="text-2xl font-display font-bold dark:text-white tracking-widest">HELOADZ</span>
+              <span className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-widest">HELOADZ</span>
+              */}
             </div>
-            <div className="flex gap-8">
+            <div className="flex-1 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10 text-center md:text-center text-sm text-slate-700 dark:text-slate-300 min-w-0">
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-white mb-1">Contact</p>
+                <a href="mailto:helo@heloadz.com" className="hover:text-primary transition-colors">helo@heloadz.com</a>
+                <span className="mx-2">|</span>
+                <a href="tel:+919374455555" className="hover:text-primary transition-colors">+91-9374455555</a>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-white mb-1">Jaipur</p>
+                <p className="max-w-[260px] mx-auto sm:mx-0">70/38, Patel Marg, Mansarovar, Jaipur - 302020</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-white mb-1">Kota</p>
+                <p className="max-w-[260px] mx-auto sm:mx-0">86, 87-A, Shrinathpuram Sector-A, Ahinsa Circle, Kota - 324009</p>
+              </div>
+            </div>
+            <div className="flex gap-8 shrink-0 justify-center md:justify-end">
               <a href="#" className="text-slate-500 hover:text-primary transition-colors" aria-label="Twitter">
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -477,7 +563,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer> */}
+      </footer>
     </>
   );
 }
