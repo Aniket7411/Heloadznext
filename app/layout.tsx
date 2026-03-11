@@ -22,22 +22,13 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
           rel="stylesheet"
         />
+        {/* Theme switching commented out – fixed to bright/light theme only */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var theme = localStorage.theme;
-                if (!theme) {
-                  theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  localStorage.theme = theme;
-                }
-                if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                  document.documentElement.classList.add('light-mode');
-                } else {
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.classList.remove('light-mode');
-                }
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light-mode');
               })();
             `,
           }}

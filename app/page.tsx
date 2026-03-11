@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ThemeToggle } from "./components/ThemeToggle";
+// Theme switching commented out – bright theme only
+// import { ThemeToggle } from "./components/ThemeToggle";
 import { DreamspacesSection } from "./components/DreamspacesSection";
 import emailjs from "@emailjs/browser";
 
@@ -28,13 +29,13 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
   const [formStatus, setFormStatus] = useState<FormStatus>("idle");
 
-  // Sync initial theme from the <html> class when the component mounts
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    const current: "bright" | "dark" = isDark ? "dark" : "bright";
-    setTheme(current);
-    console.log("Current theme:", current);
-  }, []);
+  // Theme switching commented out – sync from DOM no longer needed (fixed bright)
+  // useEffect(() => {
+  //   const isDark = document.documentElement.classList.contains("dark");
+  //   const current: "bright" | "dark" = isDark ? "dark" : "bright";
+  //   setTheme(current);
+  //   console.log("Current theme:", current);
+  // }, []);
 
   async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -111,12 +112,14 @@ export default function Home() {
               >
                 Launch Campaign
               </Link>
+              {/* Theme toggle commented out – fixed to bright theme only
               <ThemeToggle
                 onToggle={(next) => {
                   setTheme(next);
                   console.log("Theme toggled to:", next);
                 }}
               />
+              */}
               <button
                 type="button"
                 className="md:hidden rounded-lg p-2 text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
