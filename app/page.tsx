@@ -555,12 +555,12 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="border-t border-slate-200 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between text-sm text-slate-500 dark:text-slate-500">
-            <p>© 2024 HeloAdz. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="border-t border-slate-200 dark:border-white/5 pt-8 text-center text-sm text-slate-500 dark:text-slate-500">
+            <p>© 2026 HeloAdz. All rights reserved.</p>
+            {/* <div className="flex gap-6 mt-4 md:mt-0">
               <Link href="#" className="hover:text-slate-800 dark:hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="#" className="hover:text-slate-800 dark:hover:text-white transition-colors">Terms of Service</Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
