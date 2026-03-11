@@ -104,9 +104,7 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
 
   return (
     <section
-      className={`py-16 md:py-24 ${
-        theme === "bright" ? "bg-background-light" : "bg-surface-dark"
-      }`}
+      className="py-16 md:py-24 bg-background-light dark:bg-surface-dark transition-colors duration-300"
       id="dreamspaces"
     >
       <div className="container mx-auto px-4">
@@ -114,18 +112,14 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
           {/* Left: content */}
           <div className="flex-1 order-2 lg:order-1 flex flex-col justify-center">
             <h2
-              className={`font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight ${
-                theme === "bright" ? "text-[#000]" : "text-[#fff]"
-              }`}
+              className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight text-slate-900 dark:text-white"
             >
               Lighting Up Jaipur.
               <br />
               Your Digital Dreamspaces.
             </h2>
             <p
-              className={`text-base md:text-lg mb-8 max-w-xl ${
-                theme === "bright" ? "text-[#000]" : "text-[#fff]"
-              }`}
+              className="text-base md:text-lg mb-8 max-w-xl text-slate-800 dark:text-slate-100"
             >
               {TAGLINE}
             </p>
@@ -142,10 +136,8 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
                   }}
                   className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                     activeCategoryId === cat.id
-                      ? "bg-green-500 text-[#fff] shadow"
-                      : theme === "bright"
-                        ? "text-[#000] hover:text-[#000]"
-                        : "text-[#fff] hover:text-[#fff]"
+                      ? "bg-green-500 text-white shadow"
+                      : "text-slate-900 dark:text-slate-100 hover:text-slate-900 dark:hover:text-slate-100"
                   }`}
                 >
                   {cat.label}
@@ -163,10 +155,8 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
                     onClick={() => setActiveSubIndex(i)}
                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                       activeSubIndex === i
-                        ? "bg-green-500 text-[#fff]"
-                        : `bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 ${
-                            theme === "bright" ? "text-[#000]" : "text-[#fff]"
-                          }`
+                        ? "bg-green-500 text-white"
+                        : "bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 text-slate-900 dark:text-slate-100"
                     }`}
                   >
                     {sub.name}
@@ -175,22 +165,18 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
               </div>
               <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
                 <h3
-                className={`font-display font-bold text-xl mb-4 ${
-                  theme === "bright" ? "text-[#000]" : "text-[#fff]"
-                }`}
-              >
-                {activeSub.name}
-              </h3>
+                  className="font-display font-bold text-xl mb-4 text-slate-900 dark:text-white"
+                >
+                  {activeSub.name}
+                </h3>
                 {activeSub.details.length > 0 ? (
                   <dl className="space-y-3">
                     {activeSub.details.map((d) => (
                       <div key={d.label} className="flex flex-wrap gap-x-2 text-sm">
-                        <dt className="text-slate-500 dark:text-slate-400">{d.label}</dt>
-                        <span className="text-slate-500 dark:text-slate-400">:</span>
+                        <dt className="text-slate-600 dark:text-slate-300 font-medium">{d.label}</dt>
+                        <span className="text-slate-600 dark:text-slate-300">:</span>
                         <dd
-                          className={`font-medium ${
-                            theme === "bright" ? "text-[#000]" : "text-[#fff]"
-                          }`}
+                          className="font-medium text-slate-900 dark:text-slate-100"
                         >
                           {d.value}
                         </dd>
@@ -198,14 +184,12 @@ export function DreamspacesSection({ theme }: DreamspacesSectionProps) {
                     ))}
                   </dl>
                 ) : (
-                  <p className="text-slate-500 dark:text-slate-400 text-sm">Details coming soon.</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm">Details coming soon.</p>
                 )}
                 {activeSub.locations && activeSub.locations.length > 0 && (
                   <ul
-                  className={`mt-4 pt-4 border-t border-slate-200 dark:border-white/10 space-y-1.5 text-sm ${
-                    theme === "bright" ? "text-[#000]" : "text-[#fff]"
-                  }`}
-                >
+                    className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 space-y-1.5 text-sm text-slate-800 dark:text-slate-100"
+                  >
                     {activeSub.locations.map((loc) => (
                       <li key={loc}>• {loc}</li>
                     ))}
