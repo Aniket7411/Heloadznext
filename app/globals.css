@@ -11,11 +11,15 @@
   --surface-dark: #0F0F16;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020205;
-    --foreground: #f1f5f9;
-  }
+/* Theme is controlled by .dark / .light-mode class (from localStorage), not system preference,
+   so colors stay consistent on mobile and desktop. */
+html.dark {
+  --background: #020205;
+  --foreground: #f1f5f9;
+}
+html.light-mode {
+  --background: #F8FAFC;
+  --foreground: #0f172a;
 }
 
 @theme inline {

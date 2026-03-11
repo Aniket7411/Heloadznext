@@ -27,13 +27,16 @@ export default function RootLayout({
             __html: `
               (function() {
                 var theme = localStorage.theme;
+                if (!theme) {
+                  theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  localStorage.theme = theme;
+                }
                 if (theme === 'light') {
                   document.documentElement.classList.remove('dark');
                   document.documentElement.classList.add('light-mode');
                 } else {
                   document.documentElement.classList.add('dark');
                   document.documentElement.classList.remove('light-mode');
-                  if (!theme) localStorage.theme = 'dark';
                 }
               })();
             `,
