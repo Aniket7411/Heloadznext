@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Experience the next dimension of advertising with HeloAdz. 3D curved anamorphic billboards that captivate and convert.",
   icons: {
-    icon: "/images/favicon.png",
+    icon: "/images/heloadzlogo.png",
   },
 };
 
